@@ -1,0 +1,25 @@
+<form onsubmit="return validateForm()">
+  Name: <input type="text" id="name"><br>
+  Email: <input type="text" id="email"><br>
+  Course Code: <input type="text" id="course"><br>
+  <input type="submit" value="Register">
+</form>
+
+<script>
+function validateForm() {
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+  let course = document.getElementById("course").value;
+
+  if (name == "" || email == "" || course == "") {
+    alert("All fields must be filled out");
+    return false;
+  }
+  let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  if (!email.match(emailPattern)) {
+    alert("Invalid email format");
+    return false;
+  }
+  return true;
+}
+</script>
